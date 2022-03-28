@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Location List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let location of locations">
+      <ion-item-sliding>
+        <ion-item>
+          ID: {{location.id}}, Timestamp: {{location.geoTimestamp}}, Latitude: {{location.latitude}}, Longitude: {{location.longitude}}
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="deleteLocation(location.id)">
+            Delete
+          </ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+    </div>
+  </ion-list>
+
+</ion-content>
