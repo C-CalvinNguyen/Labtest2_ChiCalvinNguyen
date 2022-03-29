@@ -64,7 +64,7 @@ export class HomePage {
 
           // If the data hasnt been saved this time, save it once
           if (this.savedTracking === false) {
-            this.databaseService.addLocation(pos.timestamp, pos.coords.latitude, pos.coords.longitude);
+            this.databaseService.addLocation(new Date(pos.timestamp).toString(), pos.timestamp, pos.coords.latitude, pos.coords.longitude);
             this.savedTracking = true;
           }
 

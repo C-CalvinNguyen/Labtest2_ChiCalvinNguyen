@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export interface Location {
   id: number;
   geoTimestamp: string;
+  rawTimestamp: string;
   latitude: string;
   longitude: string;
 };
@@ -67,6 +68,7 @@ export class DatabaseService {
           locations.push({
             id: data.rows.item(i).id,
             geoTimestamp: data.rows.item(i).geoTimestamp,
+            rawTimestamp: data.rows.item(i).rawTimestamp,
             latitude: data.rows.item(i).latitude,
             longitude: data.rows.item(i).longitude
           });
@@ -76,9 +78,10 @@ export class DatabaseService {
     });
   }
 
-  addLocation(timeStamp, latitude, longitude) {
-    const data = [timeStamp, latitude, longitude];
-    return this.db.executeSql('INSERT INTO location (geoTimestamp, latitude, longitude) VALUES (?, ?, ?)', data).then(tempData => {
+  addLocation(geoTimestamp, rawTimestamp, latitude, longitude) {
+    const data = [geoTimestamp, rawTimestamp, latitude, longitude];
+    return this.db.executeSql
+    ('INSERT INTO location (geoTimestamp, rawTimestamp, latitude, longitude) VALUES (?, ?, ?, ?)', data).then(tempData => {
       console.log('added data', tempData);
       this.loadLocations();
     });

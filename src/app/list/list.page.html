@@ -9,8 +9,15 @@
     <div *ngFor="let location of locations">
       <ion-item-sliding>
         <ion-item>
-          ID: {{location.id}}, Timestamp: {{location.geoTimestamp}}, Latitude: {{location.latitude}}, Longitude: {{location.longitude}}
+          ID: {{location.id}}
+          <br/>
+          Timestamp: {{location.geoTimestamp}}
+          <br/>
+          Raw Timestamp: {{location.rawTimestamp}}
+          <br/>
+          Latitude: {{location.latitude}}, Longitude: {{location.longitude}}
         </ion-item>
+        <!-- Slide Ion-Item Left to Show Delete Button-->
         <ion-item-options side="end">
           <ion-item-option color="danger" (click)="deleteLocation(location.id)">
             Delete
