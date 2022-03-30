@@ -1,1 +1,6 @@
-{}
+{
+	"appId": "io.ionic.starter",
+	"appName": "Labtest2_ChiCalvinNguyen",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
